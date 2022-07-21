@@ -1,0 +1,30 @@
+version: "3.4"
+
+services: 
+  db:
+    image: postgres
+    ports: [5432:5432]
+    container_name: postgres
+    environment:   
+        - POSTGRES_SERVER=db
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=password
+        - POSTGRES_DB=dev
+    command: postgres -c listen_addresses='*'
+    volumes:
+        - app-db-data:/var/lib/postgresql/data
+    
+        
+  cli:    
+    build:
+      context: .
+      dockerfile: dockerfile
+    container_name: vic_cli
+    env_file:
+      - .env
+    volumes:
+      - $PWD:/vic
+    tty: true
+    
+volumes:
+  app-db-data:
