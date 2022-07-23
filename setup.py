@@ -9,7 +9,8 @@ setup(
         'pydantic',
         'pytest',
         'wget',
-        'psycopg2-binary'
+        'psycopg2-binary',
+        'pydantic[dotenv]'
     ],
     entry_points={
         'console_scripts': [

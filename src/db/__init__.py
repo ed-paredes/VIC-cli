@@ -27,7 +27,6 @@ def create_tables(meta: MetaData):
         Column('comarca', String, nullable=False),
         Column('vaccination_date', DateTime),
         Column('doses', Integer, nullable=False),
-        Column('manufacturer', String, nullable=False),
         Column('last_updated', DateTime, nullable=False)
         
     )
